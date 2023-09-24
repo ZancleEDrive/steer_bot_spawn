@@ -1,8 +1,5 @@
 # steer_bot_spawn
 
-```markdown
-# README del Progetto
-
 Questo repository contiene una serie di script per la gestione di un progetto basato su Gazebo e ROS (Robot Operating System). Gli script sono progettati per semplificare l'installazione e l'avvio del progetto. Di seguito, una breve spiegazione degli script e come utilizzarli.
 
 ## Script di Installazione (`installation.sh`)
@@ -54,7 +51,3 @@ Lo script di terminazione (`killscreen.sh`) è utilizzato per chiudere le sessio
    Questo script elencherà tutte le sessioni screen in esecuzione e chiederà conferma prima di chiuderle.
 
 **Nota**: Assicurarsi di avere le dipendenze necessarie (Gazebo, ROS, ecc.) installate correttamente prima di eseguire gli script.
-
-```
-
-Puoi copiare e incollare questo README direttamente nel tuo repository GitHub come file `README.md`. Assicurati di personalizzare il README con dettagli specifici sul tuo progetto se necessario.

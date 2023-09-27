@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Cartelle da spostare
-folders=("cone","asphalt_plane","grass", "mat", "oak_tree")
+folders=(cone asphalt_plane grass mat oak_tree)
 
 # Directory di destinazione
 dest_folder="$HOME/.gazebo/models"

@@ -20,8 +20,8 @@ read -p "Premi [Enter] per continuare..."
 
 
 # Lancia design.py e attendi il completamento
-python3 ./steer_bot/design.py
-read -p "Premi [Enter] per continuare..."
+#python3 ./steer_bot/design.py
+#read -p "Premi [Enter] per continuare..."
 
 # Informa l'utente sulla chiusura di rqt_robot_steering
 echo "Se vuoi utilizzare il sistema di guida autonoma, chiudi la finestra rqt_robot_steering."

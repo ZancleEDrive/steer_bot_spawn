@@ -46,7 +46,7 @@ pure_pursuit_file="$HOME/catkin_ws/src/autonomous_steer_bot/control/src/pure_pur
 
 # Esegui lo script Python per modificare i file
 if [ -f "$pure_pursuit_file" ] && [ -f "$launch_file" ]; then
-  python3 modify_files.py "$pure_pursuit_file" "$launch_file"
+  python3 steer_bot/modify_files.py "$pure_pursuit_file" "$launch_file"
 else
   echo "Uno dei file non esiste."
 fi

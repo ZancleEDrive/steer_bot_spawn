@@ -44,26 +44,11 @@ fi
 launch_file="$HOME/catkin_ws/src/steer_bot/steer_bot_gazebo/launch/steer_bot_sim.launch"
 pure_pursuit_file="$HOME/catkin_ws/src/autonomous_steer_bot/control/src/pure_pursuit.py"
 
-# Modifica steer_bot_sim.launch
-if [ -f "$launch_file" ]; then
-    awk '
-        /<arg name="world_name" default="\/worlds\/empty_world"\/>/ {
-            print "<!-- " $0 " -->"
-            print "  <arg name=\"world_name\" default=\"/worlds/new_world.world\"/>"
-            next
-        }
-        { print }
-    ' $launch_file > temp_file && mv temp_file $launch_file
-    echo "Modifica di steer_bot_sim.launch completata."
+# Esegui lo script Python per modificare i file
+if [ -f "$pure_pursuit_file" ] && [ -f "$launch_file" ]; then
+  python3 modify_files.py "$pure_pursuit_file" "$launch_file"
 else
-    echo "Il file steer_bot_sim.launch non esiste."
+  echo "Uno dei file non esiste."
 fi
 
-# Modifica pure_pursuit.py
-if [ -f "$pure_pursuit_file" ]; then
-  python3 modify_file.py $pure_pursuit_file 
-  echo "Modifica di pure_pursuit.py completata."
-else
-  echo "Il file pure_pursuit.py non esiste."
-fi
 echo "Finito."

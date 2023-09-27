@@ -9,8 +9,8 @@ from geometry_msgs.msg import Pose
 from scipy import interpolate
 
 # Constants
-SKIP_LEFT_POINTS = [24, 25]
-SKIP_RIGHT_POINTS = [11, 13, 39, 40, 41]
+SKIP_LEFT_POINTS = [] #[24, 25]
+SKIP_RIGHT_POINTS = [] #[11, 13, 39, 40, 41]
 DISTANCE = 1.8  # Updated distance
 
 # Function to calculate the distance between two points
@@ -30,9 +30,13 @@ MODEL_CONTENT_TREE = read_file_sdf('./steer_bot/tree.sdf')
 
 # Generate the primary trajectory
 def generate_trajectory():
-    cx = np.arange(0, 50, 1)
-    cy = [math.sin(ix / 5.0) * ix / 2.0 for ix in cx]
-    tck = interpolate.splrep(cx, cy)
+    cx = np.arange(0, 80, 1)
+#    cy = [math.sin(ix / 5.0) * ix / 2.0 for ix in cx]
+#    tck = interpolate.splrep(cx, cy)
+    cy = [math.sin(ix / 8.33) * ix / 4.0 for ix in cx]
+    # Interpolazione spline
+    tck = interpolate.splrep(cx, cy, s=0)
+
     return cx, cy, tck
 
 # Function to spawn a model
@@ -99,7 +103,7 @@ def node():
                 spawn(f'pointR_{i}', x, y, 0.3, MODEL_CONTENT_CONE_RIGHT)
 
         # Generate trees
-        for i in range(40):
+        for i in range(80):
             x = random.uniform(min(cx), max(cx))
             y = random.uniform(min(cy), max(cy))
 

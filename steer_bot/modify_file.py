@@ -8,7 +8,7 @@ def modify_python_file(file_path):
         # Verifica se le modifiche sono già state effettuate
         modified = False
         if "math.sin(ix / 8.33) * ix / 4.0" not in file_data:
-            file_data = file_data.replace("math.sin(ix / 10.0) * ix / 5.0", "math.sin(ix / 8.33) * ix / 4.0")
+            file_data = file_data.replace("math.sin(ix / 5.0) * ix / 2.0", "math.sin(ix / 8.33) * ix / 4.0")
             modified = True
 
         if "cx = np.arange(0, 60, 0.5)" not in file_data:
